@@ -1,0 +1,47 @@
+.loginPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loginBox {
+  padding: 20px;
+  margin-top: 100px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 430px;
+  width: 350px;
+  background-color: white;
+}
+.loginInput {
+  height: 50px;
+  border-radius: 5px;
+  border: 0px ;
+  padding: 5px;
+  background-color: #f054541a;
+}
+.loginInput:focus {
+  outline: none;
+}
+.loginButton {
+  height: 45px;
+  width: 100px;
+  align-self: center;
+  border-radius: 5px;
+  background-color: #f05454;
+  font-weight: 600;
+  color: white;
+  border: none;
+}
+.Admin {
+  align-self: center;
+  background-color: white;
+  color: rgb(95, 94, 94);
+}
+.registerButton {
+  align-self: center;
+  border: 0px;
+  border-radius: 5px;
+
+}
