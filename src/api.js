@@ -56,6 +56,7 @@ export const logoutAdmin = async (navigate) => {
       withCredentials: "include",
     });
     navigate("/");
+    window.location.reload()
   } catch (err) {
     console.log(err);
   }

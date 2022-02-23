@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 .loginBox {
   padding: 20px;
@@ -24,16 +25,7 @@
 .loginInput:focus {
   outline: none;
 }
-.loginButton {
-  height: 45px;
-  width: 100px;
-  align-self: center;
-  border-radius: 5px;
-  background-color: #f05454;
-  font-weight: 600;
-  color: white;
-  border: none;
-}
+
 .Admin {
   align-self: center;
   background-color: white;

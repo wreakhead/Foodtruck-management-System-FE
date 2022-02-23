@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./FoodTruck.css";
 export default function FoodTruck(props) {
   return (
     <div>
@@ -158,6 +158,7 @@ export default function FoodTruck(props) {
               strokeWidth="2"
             />
           </g>
+
           <line
             id="Line 6"
             x1="220.25"

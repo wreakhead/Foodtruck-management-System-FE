@@ -1,0 +1,23 @@
+.customButton {
+  height: 45px;
+  width: 100px;
+  align-self: center;
+  border-radius: 5px;
+  background-color: #f05454;
+  font-weight: 600;
+  color: white;
+  border: none;
+}
+.loadingRing {
+  height: 30px;
+  width: 30px;
+  animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

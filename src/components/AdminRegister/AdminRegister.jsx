@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 
 import { useNavigate } from "react-router-dom";
-import { RegisterAdmin } from "../api";
+import { RegisterAdmin } from "../../api";
+import CustomButton from "../CustomButton/CustomButton";
 
 export default function AdminRegister() {
   //redux
@@ -52,9 +53,7 @@ export default function AdminRegister() {
             placeholder="password"
           />
 
-          <button type="submit" className="loginButton">
-            register
-          </button>
+          <CustomButton pending={false} text="register" />
         </form>
       </div>
     </div>
