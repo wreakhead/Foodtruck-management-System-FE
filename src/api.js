@@ -37,13 +37,14 @@ export const RegisterAdmin = async (user, navigate) => {
   }
 };
 
-export const checkLoggedIn = async (dispatch, navigate) => {
+export const checkLoggedIn = async (dispatch, navigate,to) => {
   dispatch(AdminDataFetchStart());
   try {
     await axios.get(`${adminURL}/api/admin`, {
       withCredentials: "include",
     });
     dispatch(AdminDataFetchSucess());
+    navigate(to)
   } catch (err) {
     navigate("/");
     dispatch(AdminDataFetchError());
@@ -56,7 +57,7 @@ export const logoutAdmin = async (navigate) => {
       withCredentials: "include",
     });
     navigate("/");
-    window.location.reload()
+    // window.location.reload()
   } catch (err) {
     console.log(err);
   }
