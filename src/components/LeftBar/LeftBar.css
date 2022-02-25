@@ -1,5 +1,5 @@
 .leftBar {
-  height: 99vh;
+  height: 100vh;
 }
 .leftBarLogo {
   font-weight: bolder;
@@ -31,4 +31,8 @@
 }
 .optionArrow {
   padding-top: 2px;
+}
+.closeButton {
+  height: 2px;
+  width: 2px;
 }

@@ -11,14 +11,25 @@ export default function LeftBar(props) {
     <div className="leftBar p-3">
       <div className="container-fluid p-0">
         <div className="col">
-          <div className="row h2 p-2 d-flex flex-column justify-content-center leftBarLogo">
+          <div className="row h2 p-2 d-flex flex-row align-item-center justify-content-between leftBarLogo">
             Food Truck
+            {props.closeButton ? (
+              <button
+                type="button"
+                className="btn-close text-reset closeButton align-self-center"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            ) : (
+              <></>
+            )}
           </div>
 
           <div className="h6 optionsBlock">
             {optionsData.map((option) => {
               return (
                 <NavOptions
+                  key={option.id}
                   title={option.title}
                   to={option.to}
                   icon={option.icon}
@@ -26,6 +37,7 @@ export default function LeftBar(props) {
                 />
               );
             })}
+            
           </div>
         </div>
       </div>
