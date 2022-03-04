@@ -1,20 +1,17 @@
 .leftBarArea {
   width: 320px;
 }
-
 .rightArea {
   background-color: #e9ecf0;
 }
-.infoTab {
-  height: 60px;
-  background-color: #f5f5f5;
-}
-.chartArea {
+
+.contentArea {
   margin: 10px;
   background-color: #f5f5f5;
   border-radius: 10px;
-  width: 50%;
 }
 .moreDetails {
-  margin: 10px;
+   margin: 10px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
 }

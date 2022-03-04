@@ -1,7 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import NavOptions from "../NavOptions/NavOptions";
 import "./LeftBar.css";
 export default function LeftBar(props) {
+  const domain = useSelector((state) => state.userData.AdminDataInfo.domain);
   const optionsData = [
     { id: 1, title: "Dash", to: "/dashboard", icon: "bi bi-speedometer2" },
     { id: 2, title: "Trucks", to: "/trucks", icon: "bi bi-truck" },
@@ -12,7 +14,7 @@ export default function LeftBar(props) {
       <div className="container-fluid p-0">
         <div className="col">
           <div className="row h2 p-2 d-flex flex-row align-item-center justify-content-between leftBarLogo">
-            Food Truck
+            {domain}
             {props.closeButton ? (
               <button
                 type="button"
@@ -37,7 +39,6 @@ export default function LeftBar(props) {
                 />
               );
             })}
-            
           </div>
         </div>
       </div>

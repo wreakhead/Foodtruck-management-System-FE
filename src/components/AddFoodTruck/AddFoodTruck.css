@@ -1,0 +1,24 @@
+.AddTruckBox {
+  width: 60%;
+  padding: 2px;
+}
+.AddTruckInput {
+  height: 50px;
+  border-radius: 5px;
+  border: 0px;
+  padding: 5px;
+  background-color: #f054541a;
+  width: 100%;
+}
+.AddTruckInput:focus {
+  outline: none;
+}
+
+.addButton {
+  margin: 5px;
+}
+.addTruckTitle {
+  align-self: center;
+  color: rgb(119, 118, 118);
+  font-weight: bold;
+}

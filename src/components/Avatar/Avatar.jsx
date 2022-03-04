@@ -1,24 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import PopUp from "../PopUp/PopUp";
+import "./Avatar.css";
 
 export default function Avatar() {
+  const [openPopUp, setOpenPopUp] = useState(false);
+
   return (
-    <div
-      style={{
-        position: "relative",
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
+    <div className="avatar">
       <svg
-        style={{ position: "absolute" }}
+        onClick={() => setOpenPopUp(!openPopUp)}
+        style={{ position: "absolute", backgroundColor: "#B1D0E0" }}
         width="40"
         height="40"
         viewBox="0 0 40 40"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="rounded-circle"
-        style={{ backgroundColor: "#B1D0E0" }}
       >
         <g id="avatar" clipPath="url(#clip0_1_2)">
           <ellipse
@@ -65,7 +62,7 @@ export default function Avatar() {
           marginTop: "45px",
         }}
       >
-        <PopUp />
+        <PopUp open={openPopUp} />
       </div>
     </div>
   );

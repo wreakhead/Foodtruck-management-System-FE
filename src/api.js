@@ -37,14 +37,13 @@ export const RegisterAdmin = async (user, navigate) => {
   }
 };
 
-export const checkLoggedIn = async (dispatch, navigate,to) => {
+export const checkLoggedIn = async (dispatch, navigate) => {
   dispatch(AdminDataFetchStart());
   try {
-    await axios.get(`${adminURL}/api/admin`, {
+    const res = await axios.get(`${adminURL}/api/admin`, {
       withCredentials: "include",
     });
-    dispatch(AdminDataFetchSucess());
-    navigate(to)
+    dispatch(AdminDataFetchSucess(res.data));
   } catch (err) {
     navigate("/");
     dispatch(AdminDataFetchError());

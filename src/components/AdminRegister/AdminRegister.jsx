@@ -30,7 +30,7 @@ export default function AdminRegister() {
     <div className="loginPage">
       <div className="">
         <form onSubmit={formsubmitted} className="loginBox shadow p-3 mb-5">
-          <h3 className="Admin">Admin</h3>
+          <h3 className="registerTitle">Admin</h3>
           <input
             ref={admin}
             required
