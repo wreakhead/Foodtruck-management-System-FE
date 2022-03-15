@@ -1,24 +1,43 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./AddFoodTruck.css";
 import { useNavigate } from "react-router-dom";
-import { RegisterAdmin } from "../../api";
 import CustomButton from "../CustomButton/CustomButton";
+import { addNewTruck, getStates } from "../../api";
 
 export default function AddFoodTruck() {
   const navigate = useNavigate();
   const truckNo = useRef();
   const password = useRef();
-  const location = useRef();
+  const address = useRef();
+  const city = useRef();
+  const state = useRef();
+  const zip = useRef();
+  const [active, setActiveVal] = useState(false);
+  const [options, setOptions] = useState([]);
+
+  const setActive = () => {
+    setActiveVal(!active);
+  };
 
   const formsubmitted = async (e) => {
     e.preventDefault();
-    const user = {};
-    try {
-      await RegisterAdmin(user, navigate);
-    } catch (e) {
-      console.log(e);
-    }
+    const truck = {
+      truckNo: truckNo.current.value,
+      password: password.current.value,
+      disabled: active,
+      address: address.current.value,
+      city: city.current.value,
+      state: state.current.value,
+      zip: zip.current.value,
+    };
+    await addNewTruck(truck);
   };
+
+  useEffect(() => {
+    getStates().then((res) => {
+      setOptions(res.data);
+    });
+  }, []);
 
   return (
     <div className="AddTruckPage">
@@ -31,7 +50,6 @@ export default function AddFoodTruck() {
             type="text"
             className=" AddTruckInput"
             placeholder="Truck no"
-            id="inputEmail4"
           />
         </div>
         <div className="col-md-6">
@@ -41,11 +59,11 @@ export default function AddFoodTruck() {
             type="password"
             className=" AddTruckInput"
             placeholder="password"
-            id="inputPassword4"
           />
         </div>
         <div className="col-12">
           <input
+            ref={address}
             type="text"
             className=" AddTruckInput"
             id="inputAddress"
@@ -55,6 +73,7 @@ export default function AddFoodTruck() {
 
         <div className="col-md-6">
           <input
+            ref={city}
             type="text"
             className=" AddTruckInput"
             id="inputCity"
@@ -63,16 +82,20 @@ export default function AddFoodTruck() {
         </div>
         <div className="col-md-4">
           <select
+            ref={state}
             id="inputState"
             className="form-select AddTruckInput"
             placeholder="state"
           >
-            <option selected>Choose...</option>
-            <option>...</option>
+            <option>state</option>
+            {options?.map((option) => {
+              return <option key={option.key}>{option.value}</option>;
+            })}
           </select>
         </div>
         <div className="col-md-2">
           <input
+            ref={zip}
             type="text"
             className=" AddTruckInput"
             id="inputZip"
@@ -86,8 +109,12 @@ export default function AddFoodTruck() {
               type="checkbox"
               role="switch"
               id="flexSwitchCheckDefault"
+              onClick={setActive}
             />
-            <label className="form-check-label" for="flexSwitchCheckDefault">
+            <label
+              className="form-check-label"
+              htmlFor="flexSwitchCheckDefault"
+            >
               Active
             </label>
           </div>

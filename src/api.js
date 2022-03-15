@@ -6,7 +6,21 @@ import {
 } from "./redux/AdminDataSlice";
 import { loginError, loginStart, loginSucess } from "./redux/AdminSlice";
 
+
 export const adminURL = "http://localhost:7000";
+export const truckURL = "http://localhost:7003";
+
+const APIs = {
+  stateAPI: {
+    method: "GET",
+    url: "https://referential.p.rapidapi.com/v1/state",
+    params: { fields: "iso_a2", iso_a2: "in", lang: "en" },
+    headers: {
+      "x-rapidapi-host": "",
+      "x-rapidapi-key": "",
+    },
+  },
+};
 
 export const loginAdmin = async (user, dispatch, navigate) => {
   dispatch(loginStart());
@@ -57,6 +71,25 @@ export const logoutAdmin = async (navigate) => {
     });
     navigate("/");
     // window.location.reload()
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getStates = async () => {
+  try {
+    const res = await axios(APIs.stateAPI);
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const addNewTruck = async (truckData) => {
+  try {
+    const res = await axios.post(`${truckURL}/api/registertruck`, truckData, {
+      withCredentials: true,
+    });
   } catch (err) {
     console.log(err);
   }
